@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+
+//this class is an object that stores all the information we need to load the game. right now that's just the scene and the player's position, 
+//but we'll need to expand this once we start adding more complex interactions within the world e.g. picking up items, unlocking doors
+public class SaveData
+{
+    public string roomName;
+    public float xCoord;
+    public float yCoord;
+    public float xCoordCam;
+    public float yCoordCam;
+    public float camPositionMinX;
+    public float camPositionMinY;
+    public float camPositionMaxX;
+    public float camPositionMaxY;
+
+    public SaveData(UnityEngine.SceneManagement.Scene scene, float x, float y, float minX, float minY, float maxX, float maxY)
+    {
+        roomName = scene.name;
+        xCoord = x;
+        yCoord = y;
+        camPositionMinX = minX;
+        camPositionMinY = minY;
+        camPositionMaxX = maxX;
+        camPositionMaxY = maxY;
+    }//end method SaveData
+}
